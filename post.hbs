@@ -1,0 +1,60 @@
+{{!< default}}
+
+
+<main class="content" role="main">
+    <article class="{{post_class}}">
+
+        {{#post}}
+
+            <h1 class="post-title">{{{title}}}</h1>
+
+            <span class="post-meta label"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></span>
+
+            <section class="post-content">
+                {{content}}
+                        {{#if tags}}
+                        <aside class="tags fi-pricetag-multiple">{{tags prefix="Posted on "}}</aside>
+                        {{else}}
+                        <aside class="tags fi-pricetag-multiple">No tag</aside>
+                        {{/if}}
+            </section>
+            <hr>
+
+            <footer class="post-footer">
+                <section class="share">
+                    <h4>Liked this? Tell the world.</h4>
+                    <a class="fi-social-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    </a>
+                    <a class="fi-social-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    </a>
+                    <a class="fi-social-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    </a>
+                </section>
+
+                <div class="clearfix"></div>
+                    <hr>
+            </footer>
+
+        {{/post}}
+
+        <h3 class="title-disqus"><span class="fi-comments"></span>Comments</h3>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'samanthageitz';
+            
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    </article>
+</main>

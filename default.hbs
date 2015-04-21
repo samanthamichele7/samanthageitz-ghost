@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    <script type="text/javascript" src="{{asset "js/vendor/fastclick.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/vendor/modernizr.js"}}"></script>
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" type="text/css" href="{{asset "css/outdatedBrowser/outdatedBrowser.min.css"}}">
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="{{asset "css/samanthageitz.css"}}" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+    {{! Ghost style and meta }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdate" href="http://outdatedbrowser.com/">Update my browser now</a></p>
+</div>
+
+<nav class="top-bar hide-for-large-up" data-topbar {{#if @blog.cover}}style="background: none"{{/if}}>
+  <ul class="title-area">
+    <li class="name">
+      
+    </li>
+    <li class="home"><a class="fi-home" href="{{@blog.url}}"></a></li>
+    <li class="toggle-topbar"><a href="#" id="trigger-overlay" class="fi-list"></a></li>
+  </ul>
+
+<div class="overlay overlay-scale">
+    <button type="button" class="overlay-close">Close</button>
+    <nav>
+        <ul>
+            {{navigation}}
+        </ul>
+    </nav>
+</div>
+
+</nav>
+
+<div class="row">
+
+<div class="small-16 medium-16 large-4 columns head-area{{#if @blog.cover}} bgimage{{/if}}" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+
+<header class="site-head">
+    <div class="vertical">
+        <div class="site-head-content inner">
+            <ul class="side-nav blog-menu show-for-large-up">
+                {{navigation}}
+            </ul>
+            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img alt="{{@blog.title}}" src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+            <h1 class="blog-title">{{@blog.title}}</h1>
+            <hr>
+            <p class="blog-description">{{@blog.description}}</p>
+            <div class="blog-network">
+                <a href="http://packbackbooks.com" class="fi-book"></a>
+                <a href="http://twitter.com/samanthageitz" class="fi-social-twitter"></a>
+                <a href="https://www.linkedin.com/in/samanthageitz" class="fi-social-linkedin"></a>
+                <a href="https://www.github.com/samanthamichele7" class="fi-social-github"></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+</div>
+
+
+<div class="small-16 medium-16 large-12 columns main-column">
+    {{{body}}}
+</div>
+
+</div>
+
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="{{asset "js/outdatedBrowser.min.js"}}"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{asset "js/dest/built.min.js"}}"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+</body>
+</html>
